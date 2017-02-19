@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Access:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="console-framework-access.war">
+      <element id="artifact" artifact-name="Access:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$USER_HOME$/Downloads/org.restlet.ext.spring-2.2.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/org.restlet-2.2.1.jar" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/org.restlet.ext.servlet-2.2.1.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

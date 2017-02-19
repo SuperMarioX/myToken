@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+       <context:component-scan base-package="com.myhk.console.access.resource"/>
+
+       <!-- component config -->
+       <bean id="component" class="org.restlet.ext.spring.SpringComponent">
+              <property name="defaultTarget" ref="restRouter"/>
+       </bean>
+
+       <!-- router config-->
+       <bean id="restRouter" class="org.restlet.ext.spring.SpringRouter">
+              <property name="attachments">
+                     <map>
+                            <entry key="/token">
+                                   <bean class="org.restlet.ext.spring.SpringFinder">
+                                          <lookup-method name="create" bean="tokenResource"/>
+                                   </bean>
+                            </entry>
+                     </map>
+              </property>
+       </bean>
+
+       <!-- resource findings -->
+       <bean id="tokenResource" class="com.myhk.console.access.resource.TokenResource" scope="prototype"/>
+       <!--<bean id="akskResource" class="com.good.console.access.resource.AkSkResource" scope="prototype"/>-->
+</beans>
