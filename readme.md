@@ -1,7 +1,7 @@
 ### cmd to generate a rsa_2048 keys
 ```
 openssl
-genrsa -out rsa_private.pem 2048
+genrsa -out rsa_private_key.pem 2048
 pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM –nocrypt
 rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem
 ```
