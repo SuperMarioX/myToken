@@ -1,0 +1,27 @@
+-- Create the database named KeyPairs
+CREATE DATABASE KeyPairs OWNER onf;
+GRANT ALL PRIVILEGES ON DATABASE KeyPairs to onf;
+
+
+-- Create aksk table
+CREATE TABLE aksk (
+  UUID     CHAR(32)      NOT NULL,
+  USERID   VARCHAR(50)   NOT NULL,
+  AK       VARCHAR(1000) NOT NULL,
+  SK       VARCHAR(1000) NOT NULL,
+  ISSUED   TIMESTAMPTZ   NOT NULL,
+  EXPIRED  TIMESTAMPTZ   NOT NULL,
+  DISABLED BOOLEAN       NOT NULL,
+  PRIMARY KEY (UUID, USERID)
+);
+
+
+-- Insert into the table
+INSERT INTO aksk(UUID, USERID, AK, SK, ISSUED, EXPIRED, DISABLED) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+-- Select from the table;
+SELECT USERID, SK, EXPIRED, DISABLED FROM aksk WHERE USERID = ?;
+
+-- update the aksk table
+UPDATE aksk SET SK=?, ISSUED=?, EXPIRED=?, DISABLED=? WHERE USERID=?;
+
