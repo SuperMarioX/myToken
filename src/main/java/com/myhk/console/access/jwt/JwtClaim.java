@@ -1,5 +1,7 @@
 package com.myhk.console.access.jwt;
 
+import com.myhk.console.access.model.UserInfo;
+
 import java.io.Serializable;
 
 /**
@@ -12,10 +14,10 @@ public class JwtClaim implements Serializable {
 
     private String issuer;
     private String issuedAt;
-    private Object user;
+    private UserInfo user;
     private long expired;
 
-    public JwtClaim(String issuer, String issuedAt, Object user, long expired) {
+    public JwtClaim(String issuer, String issuedAt, UserInfo user, long expired) {
         this.issuer = issuer;
         this.issuedAt = issuedAt;
         this.user = user;
@@ -42,7 +44,7 @@ public class JwtClaim implements Serializable {
         return user;
     }
 
-    public void setUser(Object user) {
+    public void setUser(UserInfo user) {
         this.user = user;
     }
 
