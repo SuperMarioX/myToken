@@ -12,3 +12,4 @@ rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem
 
 ### 关于秘钥以及数字签名的解释
 [ 数字签名与数字证书](http://blog.csdn.net/oscar999/article/details/9364101)
+[code](http://www.blogjava.net/icewee/archive/2012/05/21/378719.html)
